@@ -1,0 +1,15 @@
+<%= render partial: 'spree/admin/shared/error_messages', locals: { target: @deposit_position } %>
+
+<% content_for :page_title do %>
+  <%= link_to Spree.t(:deposit), admin_product_variant_deposit_path(@variant.product, @variant) %> /
+  <%= Spree.t(:deposit_position) %>
+<% end %>
+
+<%= form_for([:admin, @variant.product, @variant, :deposit, @deposit_position])  do |f| %>
+  <fieldset data-hook="new_property">
+    <%= render partial: 'form', locals: { f: f } %>
+    <div class="form-actions">
+      <%= render partial: 'spree/admin/shared/new_resource_links' %>
+    </div>
+  </fieldset>
+<% end %>

@@ -1,0 +1,39 @@
+<% content_for :page_title do %>
+  <%= link_to @variant.name, edit_admin_product_variant_path(@variant.product, @variant) %> /
+  <%= plural_resource_name(Spree::Deposit) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:new_deposit_position), new_admin_product_variant_deposit_deposit_position_path, { class: "btn-success", icon: 'add', 'data-update' => 'new_deposit_position', id: 'new_deposit_position_link' } %>
+<% end if can?(:create, Spree::DepositPosition) %>
+
+<% if @deposit.deposit_positions.any? %>
+  <table class="table" id='listing_deposit_positions' data-hook>
+    <thead>
+      <tr data-hook="listing_deposit_header">
+        <th><%= Spree.t(:name) %></th>
+        <th><%= Spree.t(:amount) %></th>
+        <th><%= Spree.t(:price) %></th>
+        <th class="actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @deposit.deposit_positions.each do |deposit_position| %>
+        <tr id="<%= spree_dom_id deposit_position %>" data-hook="listing_deposit_positions_row">
+          <td><%= deposit_position.name %></td>
+          <td><%= deposit_position.amount %></td>
+          <td><%= deposit_position.price %></td>
+          <td class="actions actions-2 text-right">
+            <%= link_to_edit(nil, url: edit_admin_deposit_position_url(deposit_position), no_text: true) if can?(:edit, deposit_position) %>
+            <%= link_to_delete(nil, url: admin_deposit_position_url(deposit_position), no_text: true) if can?(:delete, deposit_position) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-info no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::DepositPosition)) %>,
+    <%= link_to Spree.t(:add_one), new_admin_product_variant_deposit_deposit_position_path if can?(:create, Spree::DepositPosition) %>!
+  </div>
+<% end %>
