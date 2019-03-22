@@ -25,12 +25,16 @@ module Spree
       # adjustment.present? ? adjustment.amount : 0.0
     end
 
+    def display_price
+      Spree::Money.new(total)
+    end
+
     def label
-      Spree.t('payments.deposit')
+      Spree.t(:deposit)
     end
 
     def description
-      Spree.t('payments.deposit_description')
+      Spree.t(:deposit_description)
     end
 
     def total
