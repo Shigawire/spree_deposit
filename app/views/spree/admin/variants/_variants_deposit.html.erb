@@ -1,10 +1,20 @@
 <div class="form-group" data-hook="price">
     <%= f.label :deposit, Spree.t(:deposit) %>
     <div class="col-8">
-      <%= f.text_field :deposit, readonly: true, value: number_to_currency(@variant.deposit&.total, unit: ''), class: 'form-control' %>
-    </div>
-    
-    <%= link_to 'edit', admin_product_variant_deposit_path(@product, @variant) %>
-    <%# <a data-action="edit" class="btn btn-primary btn-sm icon-link with-tip action-edit no-text" title="Edit" href="http://lvh.me:3000/admin/products/mywasser/variants/2/edit"><span class="icon icon-edit"></span> </a> %>
+      <div class="row">
+        <div class="col-md-6 text-left">
+          <%= number_to_currency(@variant.deposit&.total, unit: '') %>
+        </div>
+        <div class="col-md-6 text-right">
+          <% if @variant.persisted? %>
+            <%= link_to_edit(nil, url: admin_product_variant_deposit_path(@product, @variant), no_text: true) if can?(:edit, @variant.deposit) %>
+          <% else %>
+            <span>
+              Save the variant before you can create deposits.
+            </span>
+          <% end %>
+        </div>
+      </div>
+    </div>    
   </div>
 </div>
