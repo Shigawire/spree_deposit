@@ -1,0 +1,10 @@
+<% if @order.deposit_total != 0 %>
+  <tr>
+    <td data-hook='admin_order_tab_deposit_title'>
+      <strong><%= Spree.t(:deposit) %>:</strong>
+    </td>
+    <td id='deposit_total'>
+      <%= Spree::Money.new(@order.deposit_total) %>
+    </td>
+  </tr>
+<% end %>
