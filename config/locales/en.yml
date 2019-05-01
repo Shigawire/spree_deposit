@@ -1,4 +1,5 @@
 en:
   spree:
-    payments:
-      deposit: Deposit fee
+    deposit: Deposit fee
+    # payments:
+    #   deposit: Deposit fee

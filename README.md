@@ -6,7 +6,7 @@ Introduction goes here.
 
 1. Add this extension to your Gemfile with this line:
   ```ruby
-  gem 'spree_deposit', github: '[your-github-handle]/spree_deposit'
+  gem 'spree_deposit', github: 'https://github.com/Shigawire/spree_deposit'
   ```
 
 2. Install the gem using Bundler:
@@ -46,4 +46,4 @@ If you'd like to contribute, please take a look at the
 [instructions](CONTRIBUTING.md) for installing dependencies and crafting a good
 pull request.
 
-Copyright (c) 2019 [name of extension creator], released under the New BSD License
+Copyright (c) 2019 Fabian Kübler, released under the New BSD License

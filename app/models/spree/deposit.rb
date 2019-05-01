@@ -1,14 +1,15 @@
 module Spree
   class Deposit < Spree::Base
-    belongs_to :variant
-    has_many :deposit_positions
+    # belongs_to :variant
+    # has_many :deposit_positions
 
     include Spree::AdjustmentSource
 
     def self.adjust(order, items)
       items.each do |line_item|
-        line_item.adjustments.where(source_type: 'Spree::Deposit').destroy_all
-        line_item.variant.deposit.adjust(order, line_item)
+        line_item.adjustments.deposit.destroy_all
+        Deposit.create.adjust(order, line_item)
+        # line_item.variant.deposit.adjust(order, line_item)
       end
     end
 
@@ -18,7 +19,7 @@ module Spree
     end
 
     def compute_amount(adjustable)
-      adjustable.quantity * total
+      adjustable.quantity * adjustable.variant.deposit
       # raise 'Given adjustable does not contain a currency' unless adjustable.respond_to?(:currency)
 
       # adjustment = adjustment_amounts.where(currency:adjustable.currency).first
@@ -26,15 +27,11 @@ module Spree
     end
 
     def label
-      Spree.t('payments.deposit')
+      Spree.t('deposit')
     end
 
     def description
-      Spree.t('payments.deposit_description')
-    end
-
-    def total
-      deposit_positions.sum('price * amount')
+      Spree.t('deposit_description')
     end
   end
 end
