@@ -10,9 +10,8 @@ module SpreeDeposit
   module VERSION
     MAJOR = 0
     MINOR = 0
-    TINY  = 1
-    PRE   = 'beta'.freeze
+    TINY  = 2
 
-    STRING = [MAJOR, MINOR, TINY, PRE].compact.join('.')
+    STRING = [MAJOR, MINOR, TINY].compact.join('.')
   end
 end
