@@ -19,7 +19,7 @@ module Spree
     end
 
     def compute_amount(adjustable)
-      adjustable.quantity * adjustable.variant.deposit
+      adjustable.quantity * adjustable.product.deposit
       # raise 'Given adjustable does not contain a currency' unless adjustable.respond_to?(:currency)
 
       # adjustment = adjustment_amounts.where(currency:adjustable.currency).first
