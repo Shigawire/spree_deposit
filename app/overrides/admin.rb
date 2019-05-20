@@ -22,7 +22,7 @@ Deface::Override.new(
 Deface::Override.new(
   virtual_path: 'spree/admin/orders/_line_items',
   insert_bottom: '[class=\'line-item-price text-center\']',
-  text: '<div> <%= "#{Spree::Money.new(item.variant&.deposit)} (#{Spree.t(:deposit)})" if item.variant&.deposit&.positive? %> </div>',
+  text: '<div> <%= "#{Spree::Money.new(item.product&.deposit)} (#{Spree.t(:deposit)})" if item.product&.deposit&.positive? %> </div>',
   name: 'insert-line-item-deposit-price'
 )
 
