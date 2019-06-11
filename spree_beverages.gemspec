@@ -2,19 +2,19 @@
 lib = File.expand_path('../lib/', __FILE__)
 $LOAD_PATH.unshift lib unless $LOAD_PATH.include?(lib)
 
-require 'spree_deposit/version'
+require 'spree_beverages/version'
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_deposit'
-  s.version     = SpreeDeposit.version
-  s.summary     = 'Spree plugin for deposit fees on adjustables'
-  s.description = 'Add (optional) extension description here'
+  s.name        = 'spree_beverages'
+  s.version     = SpreeBeverages.version
+  s.summary     = 'Spree plugin for beverage-specific products'
+  s.description = 'Introduces a deposit fee and price-per-liter attribute'
   s.required_ruby_version = '>= 2.3.3'
 
   s.author    = 'Fabian Kübler'
-  s.email     = 'fabian@f0x.io'
-  s.homepage  = 'https://github.com/Shigawire/spree_deposit'
+  s.email     = 'fabian@mywasser.com'
+  s.homepage  = 'https://github.com/mywasser/spree_beverages'
   s.license = 'BSD-3-Clause'
 
   # s.files       = `git ls-files`.split("\n").reject { |f| f.match(/^spec/) && !f.match(/^spec\/fixtures/) }

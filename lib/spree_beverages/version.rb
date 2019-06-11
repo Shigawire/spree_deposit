@@ -1,7 +1,7 @@
-module SpreeDeposit
+module SpreeBeverages
   module_function
 
-  # Returns the version of the currently loaded SpreeDeposit as a
+  # Returns the version of the currently loaded SpreeBeverages as a
   # <tt>Gem::Version</tt>.
   def version
     Gem::Version.new VERSION::STRING

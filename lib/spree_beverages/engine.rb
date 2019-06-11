@@ -1,15 +1,15 @@
-module SpreeDeposit
+module SpreeBeverages
   class Engine < Rails::Engine
     require 'spree/core'
     isolate_namespace Spree
-    engine_name 'spree_deposit'
+    engine_name 'spree_beverages'
 
     # use rspec for tests
     config.generators do |g|
       g.test_framework :rspec
     end
 
-    initializer 'spree_deposit.register.deposit_adjuster', after: 'spree.register.adjustable_adjusters' do |app|
+    initializer 'spree_beverages.register.deposit_adjuster', after: 'spree.register.adjustable_adjusters' do |app|
       app.config.spree.adjusters << Spree::Adjustable::Adjuster::Deposit
     end
 
