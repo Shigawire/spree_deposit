@@ -25,7 +25,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'spree_core', spree_version
   s.add_dependency 'spree_backend', spree_version
   s.add_dependency 'spree_extension'
-  s.add_dependency 'spree_subscribable_products'
+  # FIXME: This is an actual dependency
+  # s.add_dependency 'spree_subscribable_products'
 
   s.add_development_dependency 'appraisal'
   s.add_development_dependency 'awesome_print'

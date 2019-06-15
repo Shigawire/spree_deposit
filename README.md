@@ -6,7 +6,7 @@ Introduction goes here.
 
 1. Add this extension to your Gemfile with this line:
   ```ruby
-  gem 'spree_deposit', github: 'https://github.com/Shigawire/spree_deposit'
+  gem 'spree_beverages', github: 'https://github.com/mywasser/spree_beverages'
   ```
 
 2. Install the gem using Bundler:
@@ -16,7 +16,7 @@ Introduction goes here.
 
 3. Copy & run migrations
   ```ruby
-  bundle exec rails g spree_deposit:install
+  bundle exec rails g spree_beverages:install
   ```
 
 4. Restart your server
@@ -36,7 +36,7 @@ When testing your applications integration with this extension you may use it's 
 Simply add this require statement to your spec_helper:
 
 ```ruby
-require 'spree_deposit/factories'
+require 'spree_beverages/factories'
 ```
 
 
